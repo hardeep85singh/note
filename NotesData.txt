@@ -1,0 +1,8 @@
+1#=water#=drink plenty of water daily
+2#=medicine#=take daily medicine
+3#=study#=do atleast 10 hours of study daily
+4#=book#= order book
+1#=water#=drink plenty of water daily
+2#=medicine#=take daily medicine
+3#=study#=do atleast 10 hours of study daily
+4#=book#= order book
