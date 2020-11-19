@@ -3,8 +3,7 @@ package note;
 import java.util.*;
 
 public class NoteMemoryImpl implements NoteRepository {
-   // private List<Note> allNotes = new ArrayList<>();
-    Map<String, Note> notesData = new HashMap<String, Note>();
+    private Map<String, Note> notesData = new HashMap<String, Note>();
 
     @Override
     public void write(Note note) {
@@ -14,10 +13,8 @@ public class NoteMemoryImpl implements NoteRepository {
     @Override
     public Note read(String id) {
         if(notesData.get(id) == null){
-            throw new NullPointerException("Search couldn't find this note.");
-        } else if (notesData.isEmpty()){
-            throw new ClassCastException("You must enter valid key.");
-        } else {
+            throw new NullPointerException("Search couldn't find this note.");// note note found exception
+        }  else {
             return notesData.get(id);
         }
     }
@@ -27,7 +24,7 @@ public class NoteMemoryImpl implements NoteRepository {
         if(notesData.containsKey(note.getId())){
             write(note);
         } else {
-            throw new NullPointerException("The Note you are trying to update is not present");
+            throw new NullPointerException("The Note you are trying to update is not present");// Note not found exception
         }
     }
 

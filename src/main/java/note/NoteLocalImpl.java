@@ -1,7 +1,6 @@
 package note;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class NoteLocalImpl implements NoteRepository {
     final String SEPARATOR = "#=";
@@ -12,7 +11,7 @@ public class NoteLocalImpl implements NoteRepository {
             File inputFile = new File("NotesData.txt");
             FileWriter writer = new FileWriter(inputFile, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write(note.getId() + SEPARATOR + note.getTitle() + SEPARATOR + note.getDescription());
+            bufferedWriter.write(note.getId() + SEPARATOR + note.getTitle() + SEPARATOR + note.getDescription());// separate function
             bufferedWriter.newLine();
             bufferedWriter.close();
 
@@ -28,11 +27,8 @@ public class NoteLocalImpl implements NoteRepository {
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                // code for reading string title
-                String[] lineArray = line.split(SEPARATOR);
-                if (lineArray[0].equals(id)) {
-//                    note.setTitle(lineArray[1]);
-//                    note.setDescription(lineArray[2]);
+                String[] lineArray = line.split(SEPARATOR);// should have been a function
+                if (lineArray[0].equals(id)) {// sho
                     return new Note(lineArray[0], lineArray[1], lineArray[2]);
                 }
             }
@@ -60,10 +56,5 @@ public class NoteLocalImpl implements NoteRepository {
         } catch (IOException e){
             e.printStackTrace();
         }
-//        if (read(note.getId()) != null) {
-//            write(note);
-//        } else {
-//            throw new NullPointerException("The Note you are trying to update is not present");
-//        }
     }
 }
